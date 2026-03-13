@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         AWS_REGION = "us-east-1"
-        CLUSTER_NAME = "trend-app-cluster"
+        CLUSTER_NAME = "trend-app-"
         IMAGE_REPO = "149007322367.dkr.ecr.us-east-1.amazonaws.com/trend-app"
         IMAGE_TAG = "latest"
     }
