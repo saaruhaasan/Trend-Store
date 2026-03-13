@@ -30,6 +30,8 @@ pipeline {
             steps {
                 sh '''
                 aws eks update-kubeconfig --region $AWS_REGION --name $CLUSTER_NAME
+		kubectl apply -f trend-app-deployment.yaml
+                kubectl apply -f trend-app-service.yaml
                 kubectl set image deployment/trend-app-deployment trend-app-container=$IMAGE_REPO:$IMAGE_TAG --record
                 kubectl rollout status deployment trend-app-deployment
                 '''
